@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recipe Finder</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #f7f1e3;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px;
+  }
+  h1 { margin-bottom: 20px; }
+  input, button {
+    padding: 10px;
+    font-size: 16px;
+    margin: 5px;
+  }
+  .recipe {
+    margin-top: 20px;
+    max-width: 500px;
+    background: #fff3e6;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #f0c27b;
+  }
+</style>
+</head>
+<body>
+
+<h1>Recipe Finder</h1>
+
+<input type="text" id="foodInput" placeholder="Enter food name">
+<button onclick="showRecipe()">Get Recipe</button>
+
+<div class="recipe" id="recipeDiv">Recipe will appear here...</div>
+
+<script>
+  const recipes = {
+    "pasta": "Boil pasta. Heat olive oil, garlic, add tomatoes, cook for 5 min. Mix with pasta and serve.",
+    "omelette": "Beat 2 eggs, add salt and pepper. Heat butter in a pan, pour eggs, cook until set. Fold and serve.",
+    "pancakes": "Mix flour, milk, eggs, sugar. Heat a pan, pour batter, cook both sides until golden. Serve with syrup.",
+    "fried rice": "Cook rice. Heat oil, sauté veggies, add rice, soy sauce, and cook for 5 min. Serve hot."
+  };
+
+  function showRecipe() {
+    const food = document.getElementById('foodInput').value.toLowerCase();
+    const recipeDiv = document.getElementById('recipeDiv');
+    if(recipes[food]) {
+      recipeDiv.textContent = recipes[food];
+    } else {
+      recipeDiv.textContent = "Sorry, recipe not found! Try another dish.";
+    }
+  }
+</script>
+
+</body>
+</html>
